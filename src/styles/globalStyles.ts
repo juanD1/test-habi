@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const colors = {
   background: "#ECEFF1",
   primary: "#FF680A",
-  secondary: "#1E91D6",
+  secondary: "#0375fe",
 };
 
 type WrapperProps = {
@@ -20,6 +20,7 @@ type WrapperProps = {
   top?: string;
   actived?: boolean;
   backgroundColor?: string;
+  borderRadius?: string;
 };
 
 export const Wrapper = styled.div`
@@ -34,7 +35,7 @@ export const Wrapper = styled.div`
   right: ${(props: WrapperProps) => props.right};
   top: ${(props: WrapperProps) => props.top};
   border: ${(props: WrapperProps) => props.actived && "1px solid yellow"};
-  border-radius: ${(props: WrapperProps) => props.actived && "20px"};
+  border-radius: ${(props: WrapperProps) => props.borderRadius};
   background-color: ${(props: WrapperProps) => props.backgroundColor};
   cursor: ${(props: WrapperProps) => props.cursor};
 `;
