@@ -26,6 +26,7 @@ const ToppingSelect = (props: any) => (
       <StyledLabel> $ {props.price}</StyledLabel>
     </LabelContainer>
     <Button
+      disabled={!!!props.toppings.length}
       title="Process Buy"
       margin="16px auto"
       handleOnClik={props.action}

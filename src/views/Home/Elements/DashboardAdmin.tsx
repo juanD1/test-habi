@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import Layout from "components/common/Layout";
+import Search from "components/Search";
 import { get } from "utils/db";
 import { Order } from "types/order";
 import { Wrapper } from "styles/globalStyles";
 
 const Home = (props: RouteComponentProps) => {
   const [orders, setOrders] = useState<Array<Order>>([]);
+  const [filter, setFilter] = useState<string>("");
+
+  const results = !filter
+    ? orders
+    : orders.filter((order) =>
+        order.userName.includes(filter.toLocaleLowerCase())
+      );
 
   useEffect(() => {
     getOrders();
@@ -25,6 +33,10 @@ const Home = (props: RouteComponentProps) => {
     return price;
   };
 
+  const handleOnSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter(e.target.value);
+  };
+
   return (
     <Layout>
       <Wrapper
@@ -33,6 +45,7 @@ const Home = (props: RouteComponentProps) => {
         borderRadius="16px"
         backgroundColor="#fff"
       >
+        <Search filter={filter} handleOnChange={handleOnSearch} />
         <div className="table-responsive">
           <table className="table align-middle">
             <caption>Total Sellings: {getTotalSellings()}</caption>
@@ -48,8 +61,8 @@ const Home = (props: RouteComponentProps) => {
               </tr>
             </thead>
             <tbody>
-              {orders &&
-                orders.map((order: Order, i) => (
+              {results &&
+                results.map((order: Order, i) => (
                   <tr key={`key_${i}_${order.date}`}>
                     <th scope="row">{i}</th>
                     <td>{order.userName}</td>
