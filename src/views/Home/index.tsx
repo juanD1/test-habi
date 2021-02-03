@@ -59,7 +59,7 @@ const Home = (props: RouteComponentProps) => {
   };
 
   const handleProcessPay = () => {
-    props.history.push("/pay", { name, price });
+    props.history.push("/pay", { name, price, toppings });
   };
 
   return (

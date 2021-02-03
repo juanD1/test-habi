@@ -6,7 +6,7 @@ export const StyledTitle = styled.h1`
 `;
 
 export const StyledParagraph = styled.p`
-  text-align: justify;
+  text-align: center;
 `;
 
 export const StyledUl = styled.ul<any>`
