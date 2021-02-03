@@ -3,7 +3,7 @@ export const TOPPING = {
   PEPPERONI: "pepperoni",
   PORK: "pork",
   BEEF: "beef",
-  HAM: "Ham",
+  HAM: "ham",
   SAUSAGE: "sausage",
   CHEESE: "cheese",
   TORTILLA_CHIPS: "tortilla chips",
