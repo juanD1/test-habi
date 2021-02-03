@@ -7,17 +7,23 @@ import DescriptionSelling from "components/DescriptionSelling";
 import { toppingOptions } from "constants/toppings";
 import { BASE_PRICE } from "constants/pizzas";
 import { Topping, SelectedToppings } from "types/topping";
-import { pizzaNameCase } from "utils/index";
+import { pizzaNameCase, mostFrecuent } from "utils/index";
 
 const HomeUser = (props: RouteComponentProps) => {
   const [toppings, setTopping] = useState<SelectedToppings>([]);
-  const [name, setName] = useState<string>("");
+  // const [posibleName, setPosibleNames] = useState<Array<string>>([]);
+  const [name, setName] = useState<string | undefined>("");
   const [price, setPrice] = useState<number>(0);
 
   useEffect(() => {
     getName();
+    // getPosibleName();
     getPrice();
   }, [toppings]);
+
+  // useEffect(() => {
+  //   getName();
+  // }, [posibleName]);
 
   const handleToppingOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.className.includes("topping-input")) {
@@ -34,9 +40,17 @@ const HomeUser = (props: RouteComponentProps) => {
     }
   };
 
+  // const getPosibleName = () => {
+  //   const name = pizzaNameCase(toppings);
+  //   setPosibleNames((prevState) => [...prevState, name]);
+  // };
+
   const getName = () => {
     const name = pizzaNameCase(toppings);
     setName(name);
+
+    // const name: string | undefined = mostFrecuent(posibleName);
+    // setName(name);
   };
 
   const getPrice = () => {

@@ -35,4 +35,24 @@ const get = () => {
   });
 };
 
-export { add, get };
+const getByUserName = (currentUser: any) => {
+  return new Promise((resolve, reject) => {
+    db.where("userName", "==", currentUser.displayName)
+      .get()
+      .then(({ docs }: any) => {
+        const data: Array<any> = [];
+        docs.forEach((doc: any) => {
+          if (doc.exists) {
+            data.push(doc.data());
+          }
+        });
+        resolve(data);
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+        reject(error);
+      });
+  });
+};
+
+export { add, get, getByUserName };

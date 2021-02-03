@@ -6,10 +6,11 @@ import { colors } from "styles/globalStyles";
 
 type Props = {
   filter: string;
+  placeholder: string;
   handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Search = ({ filter, handleOnChange }: Props) => {
+const Search = ({ filter, placeholder, handleOnChange }: Props) => {
   return (
     <Wrapper>
       <Input
@@ -17,7 +18,7 @@ const Search = ({ filter, handleOnChange }: Props) => {
         name="search"
         id="search"
         value={filter}
-        placeholder="search by user name"
+        placeholder={placeholder}
         onChange={handleOnChange}
       />
       <Icon
