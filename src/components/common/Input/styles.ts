@@ -42,7 +42,7 @@ export const CustomLabel = styled.label`
   top: 10px;
   transition: 0.2s ease all;
 
-  ${CustomInput}:focus ~ &, ${CustomInput}:valid ~ &, ${CustomInput}:valid ~ & {
+  ${CustomInput}:focus ~ &, ${CustomInput}:valid ~ &, ${CustomInput}:disabled ~ & {
     top: -15px;
     font-size: 12px;
   }

@@ -20,9 +20,7 @@ const HomeUser = (props: RouteComponentProps) => {
 
   const handleToppingOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.className.includes("topping-input")) {
-      const selectedTopping = e.target.id;
-      const selectedToppingChecked = e.target.checked;
-      console.log(selectedToppingChecked);
+      const { id: selectedTopping, checked: selectedToppingChecked } = e.target;
 
       const name: any = pizzaNameCase(selectedTopping, selectedToppingChecked);
       setName(name);

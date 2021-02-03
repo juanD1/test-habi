@@ -39,6 +39,7 @@ const PaymentInfo = (props: Props) => (
           style={{ margin: "24px", color: colors.primary }}
           id={"userName"}
           label="User Name"
+          disabled
           value={props.userName}
           handleOnChange={props.handleOnChange}
         />
