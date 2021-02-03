@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors } from "styles/globalStyles";
 
 type Props = {
+  disabled?: boolean;
   display?: string;
   margin?: string;
 };
@@ -13,5 +14,6 @@ export const StyledButton = styled.button<Props>`
   padding: 8px;
   border-radius: 10px;
   color: #fff;
-  background-color: ${colors.secondary};
+  background-color: ${(props) =>
+    props.disabled ? `${colors.secondary}80` : colors.secondary};
 `;

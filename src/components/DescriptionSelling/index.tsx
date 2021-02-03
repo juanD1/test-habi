@@ -18,7 +18,7 @@ const ToppingSelect = (props: any) => (
     <StyledLabel>toppings:</StyledLabel>
     <ul>
       {props.toppings.map((topping: string) => (
-        <li>{topping}</li>
+        <li key={`key_${topping}`}>{topping}</li>
       ))}
     </ul>
     <LabelContainer>

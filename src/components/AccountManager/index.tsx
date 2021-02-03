@@ -54,14 +54,24 @@ const AccountManager = () => {
           display={open ? "block" : "none"}
           style={{ zIndex: 2 }}
         >
-          <Img
-            className="rounded-circle"
-            src={authUser.photoURL}
-            alt="authUser"
-            width="50%"
-            margin="auto"
-            display="block"
-          />
+          {!authUser.photoURL ? (
+            <Icon
+              style={{ display: "block", margin: "16px auto" }}
+              icon={faUser}
+              color={colors.primary}
+              size="3x"
+              onClick={handleOpen}
+            />
+          ) : (
+            <Img
+              className="rounded-circle"
+              src={authUser.photoURL}
+              alt="authUser"
+              width="50%"
+              margin="auto"
+              display="block"
+            />
+          )}
           <WrapperUserInfo>
             <Label fontWeight={500} fontSize="16px" lineHeight="29px">
               {authUser.displayName}

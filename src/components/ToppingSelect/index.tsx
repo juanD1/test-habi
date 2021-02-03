@@ -23,7 +23,7 @@ const ToppingSelect = (props: Props) => (
     </StyledParagraph>
     <StyledUl onClick={props.handleToppingOptionClick}>
       {toppingOptions.map(({ name, price }: Topping) => (
-        <ToppingOption key={name} name={name} price={price} />
+        <ToppingOption key={`key_${name}`} name={name} price={price} />
       ))}
     </StyledUl>
   </Wrapper>

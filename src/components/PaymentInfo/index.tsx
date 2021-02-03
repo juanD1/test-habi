@@ -55,12 +55,13 @@ const PaymentInfo = (props: Props) => (
       <StyledSpan>Toppings: </StyledSpan>
       <ul style={{ listStyleType: "none", textAlign: "center" }}>
         {props.toppings.map((topping: string) => (
-          <li>{topping}</li>
+          <li key={`key_${topping}`}>{topping}</li>
         ))}
       </ul>
       <StyledSpan>Price: $ {props.price}</StyledSpan>
     </Wrapper>
     <Button
+      disabled={!(props.userName && props.phone)}
       title="Make Order"
       margin="16px auto"
       handleOnClik={props.handleSubmit}
